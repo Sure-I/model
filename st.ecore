@@ -46,8 +46,8 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="identifying data objects whose contents may change"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableDeclaration"
-          lowerBound="1" eType="#//variables/VariableList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
+          eType="#//variables/VariableList" eOpposite="#//variables/VariableList/variable"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//basics/Name">
@@ -79,6 +79,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CharLiteral" eSuperTypes="#//elements/Literal"/>
     <eClassifiers xsi:type="ecore:EClass" name="TimeLiteral" eSuperTypes="#//elements/Literal"/>
+  </eSubpackages>
+  <eSubpackages name="initializer" nsURI="https://www.xxx.xxx/st/initializers/" nsPrefix="initializer">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableInitializer" eSuperTypes="#//basics/Initializer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//elements/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//expressions/Expression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
+          eType="#//variables/VariableList" containment="true" eOpposite="#//variables/VariableList/initializer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
+          eType="#//declarations/VariableDeclaration" eOpposite="#//declarations/VariableDeclaration/initializer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="types" nsURI="https://www.xxx.xxx/st/types/" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EEnum" name="PreDefinedEDType">
@@ -141,9 +153,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="SymbolicVariable" eSuperTypes="#//elements/Variable"/>
     <eClassifiers xsi:type="ecore:EClass" name="VariableList">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
-          eType="#//elements/Variable" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
-          eType="#//elements/Type"/>
+          eType="#//elements/Variable" containment="true" eOpposite="#//elements/Variable/variableList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
+          eType="#//declarations/VariableDeclaration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" lowerBound="1"
+          eType="#//initializer/VariableInitializer" eOpposite="#//initializer/VariableInitializer/variableList"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="pous" nsURI="https://www.xxx.xxx/st/pous/" nsPrefix="pous">
@@ -217,14 +231,8 @@
           eType="#//declarations/VariableSection"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifier" eType="#//declarations/VariableQualifier"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="varDeclBody" upperBound="-1"
-          eType="#//declarations/VarDeclBody" containment="true" eOpposite="#//declarations/VarDeclBody/variableDeclaration"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VarDeclBody">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableDeclaration"
-          lowerBound="1" eType="#//declarations/VariableDeclaration" eOpposite="#//declarations/VariableDeclaration/varDeclBody"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" upperBound="-1"
-          eType="#//variables/VariableList" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
+          eType="#//initializer/VariableInitializer" containment="true" eOpposite="#//initializer/VariableInitializer/declaration"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Specifier">
       <eLiterals name="PUBLIC"/>

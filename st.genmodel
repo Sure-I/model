@@ -48,7 +48,7 @@
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="identifying data objects whose contents may change"/>
         </genAnnotations>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//elements/Variable/variableDeclaration"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//elements/Variable/variableList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//elements/Variable/value"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//elements/Method">
@@ -78,6 +78,17 @@
       </genClasses>
       <genClasses ecoreClass="st.ecore#//literals/CharLiteral"/>
       <genClasses ecoreClass="st.ecore#//literals/TimeLiteral"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Initializer" disposableProviderFactory="true" ecorePackage="st.ecore#//initializer">
+      <genClasses ecoreClass="st.ecore#//initializer/VariableInitializer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/value"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/variableList"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/declaration"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//initializer/VariableInitializer/testString"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="st.ecore#//types">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//types/PreDefinedEDType">
@@ -135,8 +146,8 @@
       <genClasses ecoreClass="st.ecore#//variables/SymbolicVariable"/>
       <genClasses ecoreClass="st.ecore#//variables/VariableList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/variable"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/type"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/declaration"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/initializer"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pous" disposableProviderFactory="true" ecorePackage="st.ecore#//pous">
@@ -221,11 +232,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/section"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/qualifier"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/testString"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/VariableDeclaration/varDeclBody"/>
-      </genClasses>
-      <genClasses ecoreClass="st.ecore#//declarations/VarDeclBody">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//declarations/VarDeclBody/variableDeclaration"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/VarDeclBody/variableList"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/VariableDeclaration/initializer"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/MethodDeclaration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/MethodDeclaration/method"/>
