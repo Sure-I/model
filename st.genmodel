@@ -49,6 +49,8 @@
           <details key="description" value="identifying data objects whose contents may change"/>
         </genAnnotations>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//elements/Variable/variableList"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//elements/Variable/type"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//elements/Variable/value"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//elements/Method">
@@ -146,8 +148,9 @@
       <genClasses ecoreClass="st.ecore#//variables/SymbolicVariable"/>
       <genClasses ecoreClass="st.ecore#//variables/VariableList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/variable"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/declaration"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/initializer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/type"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pous" disposableProviderFactory="true" ecorePackage="st.ecore#//pous">
@@ -334,6 +337,9 @@
           <details key="description" value="abstract for all statements"/>
         </genAnnotations>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//statements/StatementBody">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/StatementBody/statement"/>
+      </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/AssignmentStatement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/AssignmentStatement/variable"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/AssignmentStatement/expression"/>
@@ -341,6 +347,7 @@
       <genClasses ecoreClass="st.ecore#//statements/IfStatement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/IfStatement/condition"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/IfStatement/thenStatement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/IfStatement/elseIfStatement"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/IfStatement/elseStatement"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/GroupStatement">
