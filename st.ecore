@@ -19,11 +19,13 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="abstract initializer specifies a variable's initial value"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Exprement" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="abstract class for expression and statement"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="elements" nsURI="https://www.xxx.xxx/st/elemetns/" nsPrefix="elements">
@@ -93,7 +95,6 @@
           eType="#//variables/VariableList" containment="true" eOpposite="#//variables/VariableList/initializer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/VariableDeclaration" eOpposite="#//declarations/VariableDeclaration/initializer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="types" nsURI="https://www.xxx.xxx/st/types/" nsPrefix="types">
@@ -198,6 +199,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="abstract class for all declarations"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeDeclaration" eSuperTypes="#//declarations/Declaration">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
@@ -234,7 +236,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="section" lowerBound="1"
           eType="#//declarations/VariableSection"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifier" eType="#//declarations/VariableQualifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
           eType="#//initializer/VariableInitializer" containment="true" eOpposite="#//initializer/VariableInitializer/declaration"/>
     </eClassifiers>

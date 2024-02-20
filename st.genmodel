@@ -22,11 +22,13 @@
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="abstract initializer specifies a variable's initial value"/>
         </genAnnotations>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//basics/Initializer/testString"/>
       </genClasses>
       <genClasses image="false" ecoreClass="st.ecore#//basics/Exprement">
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="abstract class for expression and statement"/>
         </genAnnotations>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//basics/Exprement/testString"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Elements" disposableProviderFactory="true" ecorePackage="st.ecore#//elements">
@@ -89,7 +91,6 @@
             ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/value"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/variableList"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/declaration"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//initializer/VariableInitializer/testString"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="st.ecore#//types">
@@ -227,6 +228,7 @@
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="abstract class for all declarations"/>
         </genAnnotations>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/Declaration/testString"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/TypeDeclaration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/TypeDeclaration/type"/>
@@ -234,7 +236,6 @@
       <genClasses ecoreClass="st.ecore#//declarations/VariableDeclaration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/section"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/qualifier"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/testString"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/VariableDeclaration/initializer"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/MethodDeclaration">
