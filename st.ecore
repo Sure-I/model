@@ -428,13 +428,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
           eType="#//statements/Statement" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="LiteralStatement">
-      <eLiterals name="EXIT"/>
-      <eLiterals name="CONTINUE" value="1"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SpecificStatement" eSuperTypes="#//statements/Statement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" lowerBound="1"
-          eType="#//statements/LiteralStatement" derived="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExitStatement" eSuperTypes="#//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContinueStatement" eSuperTypes="#//statements/Statement"/>
   </eSubpackages>
 </ecore:EPackage>
