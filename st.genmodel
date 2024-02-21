@@ -143,6 +143,12 @@
       <genClasses ecoreClass="st.ecore#//types/FunctionBlockType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/FunctionBlockType/declaration"/>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//types/SubrangeType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//types/SubrangeType/baseType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//types/SubrangeType/lowerBound"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//types/SubrangeType/upperBound"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Variables" disposableProviderFactory="true" ecorePackage="st.ecore#//variables">
       <genClasses ecoreClass="st.ecore#//variables/DirectVariable"/>
@@ -352,13 +358,13 @@
           <details key="discription" value="a group consists of label and statement, used in &quot;case&quot; statement"/>
           <details key="description" value="a group consists of label and statement, used in &quot;case&quot; statement"/>
         </genAnnotations>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/GroupStatement/label">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/GroupStatement/exprLabel">
           <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="description" value="label shall match to the data type of the selector"/>
           </genAnnotations>
         </genFeatures>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference st.ecore#//statements/GroupStatement/statement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/GroupStatement/subrangeLabel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/GroupStatement/statementBody"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/CaseStatement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/CaseStatement/selector"/>
@@ -366,21 +372,22 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/CaseStatement/elseStatement"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/ForStatement">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/initialization"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/condition"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/iteration"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/statement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute st.ecore#//statements/ForStatement/controlVariable"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/startExpression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/endExpression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/stepExpression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/ForStatement/statementBody"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/WhileStatement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/WhileStatement/condition"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/WhileStatement/statement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/WhileStatement/statementBody"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/RepeatStatement">
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="statements could be executed at least once"/>
         </genAnnotations>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/RepeatStatement/condition"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/RepeatStatement/statement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//statements/RepeatStatement/statementBody"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//statements/ExitStatement"/>
       <genClasses ecoreClass="st.ecore#//statements/ContinueStatement"/>

@@ -152,6 +152,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/FunctionBlockDeclaration"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubrangeType" eSuperTypes="#//types/UserDefinedDataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//types/ElementaryDataType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="variables" nsURI="https://www.xxx.xxx/st/variables/" nsPrefix="variables">
     <eClassifiers xsi:type="ecore:EClass" name="DirectVariable" eSuperTypes="#//elements/Variable"/>
@@ -386,38 +393,42 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="a group consists of label and statement, used in &quot;case&quot; statement"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exprLabel" upperBound="-1"
           eType="#//expressions/Expression" containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="label shall match to the data type of the selector"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
-          eType="#//statements/Statement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subrangeLabel" upperBound="-1"
+          eType="#//elements/Type" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CaseStatement" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="selector" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="groupStatement" upperBound="-1"
           eType="#//statements/GroupStatement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//statements/Statement"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//statements/StatementBody"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ForStatement" eSuperTypes="#//statements/Statement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="initialization" lowerBound="1"
-          eType="#//statements/Statement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="controlVariable" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startExpression" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iteration" lowerBound="1"
-          eType="#//statements/Statement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
-          eType="#//statements/Statement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endExpression" lowerBound="1"
+          eType="#//expressions/Expression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stepExpression" eType="#//expressions/Expression"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WhileStatement" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
-          eType="#//statements/Statement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepeatStatement" eSuperTypes="#//statements/Statement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -425,8 +436,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
-          eType="#//statements/Statement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExitStatement" eSuperTypes="#//statements/Statement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ContinueStatement" eSuperTypes="#//statements/Statement"/>
