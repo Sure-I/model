@@ -102,6 +102,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="SubrangeInit" eSuperTypes="#//initializer/VariableInitializer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//expressions/Expression"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumInit" eSuperTypes="#//initializer/VariableInitializer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//elements/Literal"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="types" nsURI="https://www.xxx.xxx/st/types/" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EEnum" name="PreDefinedEDType">
@@ -153,6 +156,7 @@
           eType="#//declarations/TypeDeclaration" eOpposite="#//declarations/TypeDeclaration/type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SubrangeType" eSuperTypes="#//types/UserDefinedDataType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumType" eSuperTypes="#//types/UserDefinedDataType"/>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionBlockType" eSuperTypes="#//elements/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/FunctionBlockDeclaration"/>
@@ -221,6 +225,12 @@
           eType="#//expressions/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" lowerBound="1"
           eType="#//expressions/Expression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeAccess" eType="#//elements/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumTypeDecl" eSuperTypes="#//declarations/TypeDeclaration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enumValue" upperBound="-1"
+          eType="#//elements/Literal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeAccess" eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="VariableSection">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

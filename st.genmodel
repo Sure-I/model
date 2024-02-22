@@ -98,6 +98,10 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//initializer/SubrangeInit/value"/>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/EnumInit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/EnumInit/value"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="st.ecore#//types">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//types/PreDefinedEDType">
@@ -146,6 +150,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/UserDefinedDataType/typeDeclaration"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//types/SubrangeType"/>
+      <genClasses ecoreClass="st.ecore#//types/EnumType"/>
       <genClasses ecoreClass="st.ecore#//types/FunctionBlockType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/FunctionBlockType/declaration"/>
       </genClasses>
@@ -247,6 +252,14 @@
             ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/baseType"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/lowerBound"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/upperBound"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/typeAccess"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//declarations/EnumTypeDecl">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/EnumTypeDecl/enumValue"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/EnumTypeDecl/typeAccess"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/VariableDeclaration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/section"/>
