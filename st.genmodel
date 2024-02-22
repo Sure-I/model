@@ -87,10 +87,16 @@
       <genClasses ecoreClass="st.ecore#//initializer/VariableInitializer">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/type"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/value"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/variableList"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//initializer/VariableInitializer/declaration"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/SimpleInit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/SimpleInit/value"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/SubrangeInit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/SubrangeInit/value"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="st.ecore#//types">
@@ -138,7 +144,6 @@
       </genClasses>
       <genClasses ecoreClass="st.ecore#//types/UserDefinedDataType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/UserDefinedDataType/typeDeclaration"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//types/UserDefinedDataType/types"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//types/FunctionBlockType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/FunctionBlockType/declaration"/>
@@ -151,14 +156,14 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Variables" disposableProviderFactory="true" ecorePackage="st.ecore#//variables">
-      <genClasses ecoreClass="st.ecore#//variables/DirectVariable"/>
-      <genClasses ecoreClass="st.ecore#//variables/SymbolicVariable"/>
       <genClasses ecoreClass="st.ecore#//variables/VariableList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/variable"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/initializer"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//variables/VariableList/type"/>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//variables/DirectVariable"/>
+      <genClasses ecoreClass="st.ecore#//variables/SymbolicVariable"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Pous" disposableProviderFactory="true" ecorePackage="st.ecore#//pous">
       <genClasses ecoreClass="st.ecore#//pous/Function">

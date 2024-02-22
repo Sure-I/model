@@ -87,14 +87,20 @@
     <eClassifiers xsi:type="ecore:EClass" name="TimeLiteral" eSuperTypes="#//elements/Literal"/>
   </eSubpackages>
   <eSubpackages name="initializer" nsURI="https://www.xxx.xxx/st/initializers/" nsPrefix="initializer">
-    <eClassifiers xsi:type="ecore:EClass" name="VariableInitializer" eSuperTypes="#//basics/Initializer">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableInitializer" abstract="true"
+        eSuperTypes="#//basics/Initializer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//elements/Type"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//expressions/Expression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//variables/VariableList" containment="true" eOpposite="#//variables/VariableList/initializer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/VariableDeclaration" eOpposite="#//declarations/VariableDeclaration/initializer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleInit" eSuperTypes="#//initializer/VariableInitializer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//expressions/Expression"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubrangeInit" eSuperTypes="#//initializer/VariableInitializer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//expressions/Expression"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="types" nsURI="https://www.xxx.xxx/st/types/" nsPrefix="types">
@@ -145,8 +151,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="UserDefinedDataType" eSuperTypes="#//elements/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typeDeclaration" lowerBound="1"
           eType="#//declarations/TypeDeclaration" eOpposite="#//declarations/TypeDeclaration/type"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-          eType="#//elements/Type" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionBlockType" eSuperTypes="#//elements/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
@@ -161,8 +165,6 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="variables" nsURI="https://www.xxx.xxx/st/variables/" nsPrefix="variables">
-    <eClassifiers xsi:type="ecore:EClass" name="DirectVariable" eSuperTypes="#//elements/Variable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SymbolicVariable" eSuperTypes="#//elements/Variable"/>
     <eClassifiers xsi:type="ecore:EClass" name="VariableList">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
           eType="#//elements/Variable" containment="true" eOpposite="#//elements/Variable/variableList"/>
@@ -171,6 +173,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//elements/Type"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DirectVariable" eSuperTypes="#//elements/Variable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SymbolicVariable" eSuperTypes="#//elements/Variable"/>
   </eSubpackages>
   <eSubpackages name="pous" nsURI="https://www.xxx.xxx/st/pous/" nsPrefix="pous">
     <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//elements/POU">
