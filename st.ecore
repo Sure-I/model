@@ -91,6 +91,7 @@
         eSuperTypes="#//basics/Initializer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//elements/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="noNameType" eType="#//declarations/TypeDeclaration"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//variables/VariableList" containment="true" eOpposite="#//variables/VariableList/initializer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
