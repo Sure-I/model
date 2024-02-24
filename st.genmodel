@@ -107,6 +107,18 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//initializer/EnumInit/value"/>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/ArrayValue">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayValue/expression"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayValue/enum"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayValue/array"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/ArrayInit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayInit/value"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Types" disposableProviderFactory="true" ecorePackage="st.ecore#//types">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//types/PreDefinedEDType">
@@ -156,6 +168,7 @@
       </genClasses>
       <genClasses ecoreClass="st.ecore#//types/SubrangeType"/>
       <genClasses ecoreClass="st.ecore#//types/EnumType"/>
+      <genClasses ecoreClass="st.ecore#//types/ArrayType"/>
       <genClasses ecoreClass="st.ecore#//types/FunctionBlockType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference st.ecore#//types/FunctionBlockType/declaration"/>
       </genClasses>
@@ -254,15 +267,25 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//declarations/TypeDeclaration/typeAccess"/>
       </genClasses>
+      <genClasses ecoreClass="st.ecore#//declarations/Subrange">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/Subrange/lowerBound"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/Subrange/upperBound"/>
+      </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/SubrangeTypeDecl">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/baseType"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/lowerBound"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/upperBound"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/SubrangeTypeDecl/subrange"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/EnumTypeDecl">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//declarations/EnumTypeDecl/enumValue"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//declarations/ArrayTypeDecl">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/ArrayTypeDecl/subrange"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/ArrayTypeDecl/insideType"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/VariableDeclaration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/VariableDeclaration/section"/>
