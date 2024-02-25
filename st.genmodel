@@ -114,6 +114,12 @@
             ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayValue/enum"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayValue/array"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//initializer/ArrayValue/valueType"/>
+      </genClasses>
+      <genClasses ecoreClass="st.ecore#//initializer/ArrayElemInit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayElemInit/elements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//initializer/ArrayElemInit/valueType"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//initializer/ArrayInit">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

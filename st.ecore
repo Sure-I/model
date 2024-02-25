@@ -110,16 +110,18 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//elements/Literal"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArrayValue">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
-          eType="#//expressions/Expression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="enum" upperBound="-1"
-          eType="#//elements/Literal"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="array" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//expressions/Expression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="enum" eType="#//elements/Literal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="array" eType="#//initializer/ArrayElemInit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayElemInit">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//initializer/ArrayValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArrayInit" eSuperTypes="#//initializer/VariableInitializer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-          eType="#//initializer/ArrayValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//initializer/ArrayElemInit"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="types" nsURI="https://www.xxx.xxx/st/types/" nsPrefix="types">
