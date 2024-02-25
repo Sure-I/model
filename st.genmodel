@@ -118,7 +118,7 @@
       </genClasses>
       <genClasses ecoreClass="st.ecore#//initializer/ArrayElemInit">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayElemInit/elements"/>
+            ecoreFeature="ecore:EReference st.ecore#//initializer/ArrayElemInit/Element"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//initializer/ArrayElemInit/valueType"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//initializer/ArrayInit">

@@ -116,7 +116,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArrayElemInit">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Element" upperBound="-1"
           eType="#//initializer/ArrayValue"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
