@@ -38,6 +38,8 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//elements/LiteralType"
+          defaultValueLiteral="INTEGER"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//basics/Name">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -68,8 +70,6 @@
         <details key="description" value="program organization units, function, function block, class and program"/>
       </eAnnotations>
     </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="literals" nsURI="https://www.xxx.xxx/st/literals/" nsPrefix="literals">
     <eClassifiers xsi:type="ecore:EEnum" name="LiteralType">
       <eLiterals name="INTEGER"/>
       <eLiterals name="REAL" value="1"/>
@@ -79,10 +79,9 @@
       <eLiterals name="SINGLR_BYTE_CHAR" value="5" literal="SINGLR_BYTE_CHAR"/>
       <eLiterals name="DOUBLE_BYTE_CHAR" value="9"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//elements/Literal">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
-          eType="#//literals/LiteralType" defaultValueLiteral="INTEGER"/>
-    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="literals" nsURI="https://www.xxx.xxx/st/literals/" nsPrefix="literals">
+    <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//elements/Literal"/>
     <eClassifiers xsi:type="ecore:EClass" name="CharLiteral" eSuperTypes="#//elements/Literal"/>
     <eClassifiers xsi:type="ecore:EClass" name="TimeLiteral" eSuperTypes="#//elements/Literal"/>
     <eClassifiers xsi:type="ecore:EClass" name="QuoteValue" eSuperTypes="#//elements/Literal">
@@ -153,6 +152,7 @@
       <eLiterals name="WORD" value="24"/>
       <eLiterals name="DWORD" value="25"/>
       <eLiterals name="LWORD" value="26"/>
+      <eLiterals name="VOID" value="27"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PreDefinedGDType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ElementaryDataType" eSuperTypes="#//elements/Type">
@@ -307,6 +307,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
           eType="#//statements/Statement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="specifier" eType="#//declarations/Specifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="POUDeclaration" abstract="true" eSuperTypes="#//declarations/Declaration"/>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionDeclaration" eSuperTypes="#//declarations/POUDeclaration">
@@ -318,6 +319,7 @@
           eType="#//declarations/MethodDeclaration"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="functionBody" upperBound="-1"
           eType="#//pous/Body"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Inheritance">
       <eLiterals name="EXTENDS"/>
@@ -382,6 +384,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="abstract for all expressions"/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableExpression" eSuperTypes="#//expressions/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"

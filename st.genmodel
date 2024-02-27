@@ -35,11 +35,21 @@
       <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="description" value="common elements compose a full program"/>
       </genAnnotations>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//elements/LiteralType">
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/INTEGER"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/REAL"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/REAL_EXPONENT"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/BOOLEAN"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/TYPED"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/SINGLR_BYTE_CHAR"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/DOUBLE_BYTE_CHAR"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="st.ecore#//elements/Literal">
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="external expressions of data, consist of  numeric literal, character string literal, duration literal and time literal"/>
         </genAnnotations>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//elements/Literal/value"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//elements/Literal/type"/>
       </genClasses>
       <genClasses image="false" ecoreClass="st.ecore#//elements/Type">
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -68,18 +78,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Literals" disposableProviderFactory="true" ecorePackage="st.ecore#//literals">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//literals/LiteralType">
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/INTEGER"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/REAL"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/REAL_EXPONENT"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/BOOLEAN"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/TYPED"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/SINGLR_BYTE_CHAR"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//literals/LiteralType/DOUBLE_BYTE_CHAR"/>
-      </genEnums>
-      <genClasses ecoreClass="st.ecore#//literals/NumericLiteral">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//literals/NumericLiteral/type"/>
-      </genClasses>
+      <genClasses ecoreClass="st.ecore#//literals/NumericLiteral"/>
       <genClasses ecoreClass="st.ecore#//literals/CharLiteral"/>
       <genClasses ecoreClass="st.ecore#//literals/TimeLiteral"/>
       <genClasses ecoreClass="st.ecore#//literals/QuoteValue">
@@ -155,6 +154,7 @@
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//types/PreDefinedEDType/WORD"/>
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//types/PreDefinedEDType/DWORD"/>
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//types/PreDefinedEDType/LWORD"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//types/PreDefinedEDType/VOID"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="st.ecore#//types/PreDefinedGDType"/>
       <genClasses ecoreClass="st.ecore#//types/ElementaryDataType">
@@ -302,6 +302,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/MethodDeclaration/method"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/MethodDeclaration/statement"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute st.ecore#//declarations/MethodDeclaration/specifier"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/MethodDeclaration/type"/>
       </genClasses>
       <genClasses image="false" ecoreClass="st.ecore#//declarations/POUDeclaration"/>
       <genClasses ecoreClass="st.ecore#//declarations/FunctionDeclaration">
@@ -312,6 +314,8 @@
             ecoreFeature="ecore:EReference st.ecore#//declarations/FunctionDeclaration/methodDeclaration"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference st.ecore#//declarations/FunctionDeclaration/functionBody"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//declarations/FunctionDeclaration/type"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//declarations/FunctionBlockDeclaration">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//declarations/FunctionBlockDeclaration/functionBlock"/>
@@ -364,6 +368,8 @@
         <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="description" value="abstract for all expressions"/>
         </genAnnotations>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference st.ecore#//expressions/Expression/type"/>
       </genClasses>
       <genClasses ecoreClass="st.ecore#//expressions/VariableExpression">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference st.ecore#//expressions/VariableExpression/variable"/>
