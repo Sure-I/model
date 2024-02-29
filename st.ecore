@@ -76,8 +76,8 @@
       <eLiterals name="REAL_EXPONENT" value="2"/>
       <eLiterals name="BOOLEAN" value="3"/>
       <eLiterals name="TYPED" value="4"/>
-      <eLiterals name="SINGLR_BYTE_CHAR" value="5" literal="SINGLR_BYTE_CHAR"/>
-      <eLiterals name="DOUBLE_BYTE_CHAR" value="9"/>
+      <eLiterals name="SINGLE_BYTE_CHAR" value="5" literal="SINGLE_BYTE_CHAR"/>
+      <eLiterals name="DOUBLE_BYTE_CHAR" value="6"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="literals" nsURI="https://www.xxx.xxx/st/literals/" nsPrefix="literals">

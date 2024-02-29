@@ -41,7 +41,7 @@
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/REAL_EXPONENT"/>
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/BOOLEAN"/>
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/TYPED"/>
-        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/SINGLR_BYTE_CHAR"/>
+        <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/SINGLE_BYTE_CHAR"/>
         <genEnumLiterals ecoreEnumLiteral="st.ecore#//elements/LiteralType/DOUBLE_BYTE_CHAR"/>
       </genEnums>
       <genClasses image="false" ecoreClass="st.ecore#//elements/Literal">
