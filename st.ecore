@@ -1,55 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="st" nsURI="https://www.xxx.xxx/st/" nsPrefix="st">
-  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="description" value="language model for structured text"/>
-  </eAnnotations>
   <eSubpackages name="basics" nsURI="https://www.xxx.xxx/st/basics/" nsPrefix="basics">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="description" value="general purpose classes"/>
-    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="Name" abstract="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract class for name of elements"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Initializer" abstract="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract initializer specifies a variable's initial value"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Exprement" abstract="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract class for expression and statement"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="elements" nsURI="https://www.xxx.xxx/st/elemetns/" nsPrefix="elements">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="description" value="common elements compose a full program"/>
-    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="Literal">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="external expressions of data, consist of  numeric literal, character string literal, duration literal and time literal"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//elements/LiteralType"
           defaultValueLiteral="INTEGER"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//basics/Name">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="define for literals and variables the possible values"/>
-      </eAnnotations>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//basics/Name"/>
     <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//basics/Name">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="identifying data objects whose contents may change"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//variables/VariableList" eOpposite="#//variables/VariableList/variable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
@@ -59,17 +31,10 @@
           defaultValueLiteral="null"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//basics/Name">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="used in object oriented function block"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/MethodDeclaration" eOpposite="#//declarations/MethodDeclaration/method"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="POU" abstract="true" eSuperTypes="#//basics/Name">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="program organization units, function, function block, class and program"/>
-      </eAnnotations>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="POU" abstract="true" eSuperTypes="#//basics/Name"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LiteralType">
       <eLiterals name="INTEGER"/>
       <eLiterals name="REAL" value="1"/>
@@ -156,16 +121,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PreDefinedGDType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ElementaryDataType" eSuperTypes="#//elements/Type">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="a set of pre-defined elementary data types is specified by IEC61131-3"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//types/PreDefinedEDType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GenericDataType" eSuperTypes="#//elements/Type">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="used in the specification of inputs and outputs of standard functions and function blocks, indentified by prefix &quot;ANY&quot;"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//types/PreDefinedGDType"/>
     </eClassifiers>
@@ -203,9 +162,6 @@
           eType="#//statements/Statement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionResult">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="a function with result can be called in an expression, without result shall not be called inside an expression"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="functionResult" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
     </eClassifiers>
@@ -220,13 +176,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="declarations" nsURI="https://www.xxx.xxx/st/declarations/" nsPrefix="declarations">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="description" value="support for all kinds of declarations"/>
-    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="Declaration">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract class for all declarations"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeDeclList">
@@ -261,9 +211,6 @@
           eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="VariableSection">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="declaration of POU may contain various VAR sections depending on the kind of POU"/>
-      </eAnnotations>
       <eLiterals name="VAR"/>
       <eLiterals name="VAR_INPUT" value="1"/>
       <eLiterals name="VAR_OUTPUT" value="2"/>
@@ -275,9 +222,6 @@
       <eLiterals name="VAR_CONFIG" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="VariableQualifier">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="may follow variable section "/>
-      </eAnnotations>
       <eLiterals name="NULL"/>
       <eLiterals name="RETAIN" value="1"/>
       <eLiterals name="NON_RETAIN" value="2"/>
@@ -353,9 +297,6 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="expressions" nsURI="https://www.xxx.xxx/st/expressions/" nsPrefix="expressions">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="description" value="a construct, composed of operators and operands"/>
-    </eAnnotations>
     <eClassifiers xsi:type="ecore:EEnum" name="UnaryOperator">
       <eLiterals name="PARENTHESES"/>
       <eLiterals name="DEREFERENCE" value="1"/>
@@ -381,9 +322,6 @@
       <eLiterals name="BOOLEAN_OR" value="14"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//basics/Exprement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract for all expressions"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//elements/Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableExpression" eSuperTypes="#//expressions/Expression">
@@ -406,20 +344,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="#//expressions/Expression">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//expressions/BinaryOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="firstExpression" lowerBound="1"
-          eType="#//expressions/Expression" containment="true"/>
+          eType="#//expressions/Expression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="secondExpression" lowerBound="1"
           eType="#//expressions/Expression"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="statements" nsURI="https://www.xxx.xxx/st/statements/" nsPrefix="statements">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="descripiton" value="an action, consists of expressions and statements"/>
-    </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//basics/Exprement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="abstract for all statements"/>
-      </eAnnotations>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//basics/Exprement"/>
     <eClassifiers xsi:type="ecore:EClass" name="StatementBody">
       <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
           eType="#//statements/Statement" containment="true"/>
@@ -441,15 +372,8 @@
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GroupStatement" eSuperTypes="#//statements/Statement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="a group consists of label and statement, used in &quot;case&quot; statement"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="exprLabel" upperBound="-1"
-          eType="#//expressions/Expression" containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="description" value="label shall match to the data type of the selector"/>
-        </eAnnotations>
-      </eStructuralFeatures>
+          eType="#//expressions/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subrangeLabel" upperBound="-1"
           eType="#//elements/Type" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
@@ -482,9 +406,6 @@
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepeatStatement" eSuperTypes="#//statements/Statement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="description" value="statements could be executed at least once"/>
-      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="statementBody" eType="#//statements/StatementBody"
