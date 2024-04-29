@@ -49,6 +49,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="TimeLiteral" eSuperTypes="#//elements/Literal"/>
     <eClassifiers xsi:type="ecore:EClass" name="QuoteValue" eSuperTypes="#//elements/Literal">
       <eStructuralFeatures xsi:type="ecore:EReference" name="enumValue" eType="#//elements/Literal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quoteType" eType="#//elements/Type"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="initializer" nsURI="https://www.xxx.xxx/st/initializers/" nsPrefix="initializer">
@@ -347,6 +348,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="literal" lowerBound="1"
           eType="#//elements/Literal"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QuotevalueExpression" eSuperTypes="#//expressions/Expression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quoteValue" eType="#//literals/QuoteValue"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionCall" eSuperTypes="#//expressions/Expression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="functionResult" eType="#//pous/FunctionResult"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
@@ -379,8 +383,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="AssignmentStatement" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
           eType="#//elements/Variable"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-          eType="#//expressions/Expression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//expressions/Expression"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quoteValue" eType="#//literals/QuoteValue"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IfStatement" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
