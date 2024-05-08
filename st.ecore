@@ -19,7 +19,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="declType" eType="#//basics/DeclType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="DeclType">
-      <eLiterals name="GLOABLE"/>
+      <eLiterals name="GLOBAL"/>
       <eLiterals name="PROGRAM" value="1"/>
       <eLiterals name="FUNCTION" value="2"/>
       <eLiterals name="FB" value="3"/>
@@ -40,6 +40,7 @@
       <eLiterals name="TYPED" value="4"/>
       <eLiterals name="SINGLE_BYTE_CHAR" value="5" literal="SINGLE_BYTE_CHAR"/>
       <eLiterals name="DOUBLE_BYTE_CHAR" value="6"/>
+      <eLiterals name="TIME" value="7"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//basics/Name"/>
     <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//basics/Name">
@@ -162,7 +163,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="EnumType" eSuperTypes="#//types/UserDefinedDataType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="#//types/UserDefinedDataType"/>
     <eClassifiers xsi:type="ecore:EClass" name="StructType" eSuperTypes="#//types/UserDefinedDataType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="FunctionBlockType" eSuperTypes="#//elements/Type">
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionBlockType" eSuperTypes="#//types/UserDefinedDataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
           eType="#//declarations/FunctionBlockDeclaration"/>
     </eClassifiers>
@@ -182,14 +183,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="subscript" lowerBound="1"
           upperBound="-1" eType="#//expressions/Expression"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StructVariable"/>
   </eSubpackages>
   <eSubpackages name="pous" nsURI="https://www.xxx.xxx/st/pous/" nsPrefix="pous">
     <eClassifiers xsi:type="ecore:EClass" name="Function" eSuperTypes="#//elements/POU"/>
-    <eClassifiers xsi:type="ecore:EClass" name="FunctionResult">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="functionResult" lowerBound="1"
-          eType="#//expressions/Expression" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionBlock" eSuperTypes="#//elements/POU"/>
     <eClassifiers xsi:type="ecore:EClass" name="Program" eSuperTypes="#//elements/POU"/>
     <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//elements/POU"/>
@@ -260,8 +256,7 @@
       <eLiterals name="CONSTANT" value="7"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//declarations/Declaration">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="section" lowerBound="1"
-          eType="#//declarations/VariableSection"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="section" eType="#//declarations/VariableSection"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifier" eType="#//declarations/VariableQualifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
           eType="#//initializer/VariableInitializer" containment="true" eOpposite="#//initializer/VariableInitializer/declaration"/>
@@ -311,6 +306,7 @@
           upperBound="-1" eType="#//declarations/VariableDeclaration" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="methodDeclaration" upperBound="-1"
           eType="#//declarations/MethodDeclaration" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//statements/StatementBody"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProgramDeclaration" eSuperTypes="#//declarations/POUDeclaration">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableDeclaration"
@@ -358,10 +354,17 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="quoteValue" eType="#//literals/QuoteValue"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FunctionCall" eSuperTypes="#//expressions/Expression">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="functionResult" eType="#//pous/FunctionResult"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//expressions/Expression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
           eType="#//expressions/Parameter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//pous/Function"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Invocation" eSuperTypes="#//expressions/Expression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//expressions/Expression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+          eType="#//expressions/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//pous/Method"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instanceName" eType="#//expressions/FBInstanceName"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//basics/Name">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//expressions/Expression"/>
@@ -379,6 +382,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="secondExpression" lowerBound="1"
           eType="#//expressions/Expression"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FBInstanceName">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//pous/Method"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//elements/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elemVar" eType="#//elements/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//elements/Type"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="statements" nsURI="https://www.xxx.xxx/st/statements/" nsPrefix="statements">
     <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//basics/Exprement"/>
@@ -393,6 +405,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//expressions/Expression"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quoteValue" eType="#//literals/QuoteValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubprogStatement" eSuperTypes="#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="functionCall" eType="#//expressions/FunctionCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="invocation" eType="#//expressions/Invocation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IfStatement" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
