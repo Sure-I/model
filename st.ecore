@@ -195,6 +195,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="testString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="namespace" eType="#//basics/Namespace"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllDeclaration" eSuperTypes="#//declarations/Declaration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" upperBound="-1"
+          eType="#//declarations/Declaration"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeDeclList">
       <eStructuralFeatures xsi:type="ecore:EReference" name="typeDeclatation" upperBound="-1"
           eType="#//declarations/TypeDeclaration" containment="true"/>
@@ -329,7 +333,7 @@
       <eLiterals name="MODULO" value="3"/>
       <eLiterals name="ADD" value="4" literal="+"/>
       <eLiterals name="SUBSTRACT" value="5"/>
-      <eLiterals name="EQUAL" value="6"/>
+      <eLiterals name="EQUAL" value="6" literal="="/>
       <eLiterals name="INEQUAL" value="7"/>
       <eLiterals name="LESS_THAN" value="8"/>
       <eLiterals name="LESS_THAN_OR_EQUAL" value="9"/>
