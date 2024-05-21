@@ -119,7 +119,7 @@
     <eClassifiers xsi:type="ecore:EEnum" name="PreDefinedEDType">
       <eLiterals name="BOOL"/>
       <eLiterals name="SINT" value="1"/>
-      <eLiterals name="INT" value="2"/>
+      <eLiterals name="INT" value="2" literal="INT"/>
       <eLiterals name="DINT" value="3"/>
       <eLiterals name="LINT" value="4"/>
       <eLiterals name="USINT" value="5"/>
@@ -327,7 +327,7 @@
       <eLiterals name="MULTIPLY" value="1"/>
       <eLiterals name="DIVIDE" value="2"/>
       <eLiterals name="MODULO" value="3"/>
-      <eLiterals name="ADD" value="4"/>
+      <eLiterals name="ADD" value="4" literal="+"/>
       <eLiterals name="SUBSTRACT" value="5"/>
       <eLiterals name="EQUAL" value="6"/>
       <eLiterals name="INEQUAL" value="7"/>
