@@ -180,8 +180,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DirectVariable" eSuperTypes="#//elements/Variable"/>
     <eClassifiers xsi:type="ecore:EClass" name="SubscriptVariable" eSuperTypes="#//elements/Variable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subscript" lowerBound="1"
-          upperBound="-1" eType="#//expressions/Expression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//elements/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subscript" eType="#//variables/SubscriptList"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubscriptList">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subscript" upperBound="-1"
+          eType="#//expressions/Expression"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="pous" nsURI="https://www.xxx.xxx/st/pous/" nsPrefix="pous">
